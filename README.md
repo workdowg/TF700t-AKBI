@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 =======
 TF700t-AKBI
 ===========
 
->>>>>>> 33898efd569220b123bb29f415ca74556a962bf5
 TF700t Android Kexecboot Installer Script
 
 This installer script allows you to go through a kexecboot and
@@ -31,7 +30,6 @@ Running this script:
 4- Follow the prompts
 
 Profit!
-<<<<<<< HEAD
 
 =======
->>>>>>> 33898efd569220b123bb29f415ca74556a962bf5
+
