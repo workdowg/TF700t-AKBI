@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 =======
 TF700t Android Kexecboot Installer Script
 
->>>>>>> 33898efd569220b123bb29f415ca74556a962bf5
 v2.5 - 06/30/2014
 --Scripts and project names changed
 --Other small error checking fixes
@@ -17,7 +15,7 @@ v1.5 - 06/07/2014
 --Fixed some issues in boot.cfg modifier script
 
 v1.0 - 05/26/2014
-<<<<<<< HEAD
+
 --First release
 =======
 --First release
