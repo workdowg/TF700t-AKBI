@@ -1,4 +1,5 @@
-=======
+TF700t-AKBI
+
 TF700t Android Kexecboot Installer Script
 
 v2.5 - 06/30/2014
@@ -15,7 +16,4 @@ v1.5 - 06/07/2014
 --Fixed some issues in boot.cfg modifier script
 
 v1.0 - 05/26/2014
-
 --First release
-=======
-
