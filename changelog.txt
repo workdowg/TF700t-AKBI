@@ -18,5 +18,4 @@ v1.0 - 05/26/2014
 
 --First release
 =======
---First release
->>>>>>> 33898efd569220b123bb29f415ca74556a962bf5
+
