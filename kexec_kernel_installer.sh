@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer v2.5
+#Android Kexecboot kernel Installer v2.5.1
 # 06/20/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
@@ -43,17 +43,21 @@ echo ""
 echo ""
 echo "Please make a selection"
 echo ""
-echo "Choose 1 or 2 only (for now :)"
+echo ""
 echo ""
 echo "1 - CROMi-X that10 kernel"
-echo "2 - CROMBi-X that cm112 kernel"
+echo "2 - CROMBi-X pre 6/17/2014 release - thatcm11 kernel"
+echo "3 - CROMBi-X 6/17/2014 release - that10cm11"
+echo "Any other key exits"
 read kernel_ver
 echo "Mounting /system r/w..."
 mount -o remount,rw -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/w"
 mkdir -p /system/boot
 case $kernel_ver in
     1) cp that10/* /system/boot/ ;;
-    2) cp that_cm112/* /system/boot/ ;;
+    2) cp thatcm11/* /system/boot/ ;;
+    3) cp that10cm11/* /system/boot/ ;;
+    *) sh ./AKBI_v2.5.sh
 esac
 echo "Remount /system r/o..." 
 mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
