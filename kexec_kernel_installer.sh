@@ -57,7 +57,7 @@ case $kernel_ver in
     1) cp that10/* /system/boot/ ;;
     2) cp thatcm11/* /system/boot/ ;;
     3) cp that10cm11/* /system/boot/ ;;
-    *) sh ./AKBI_v2.5.sh
+    *) sh ./AKBI.sh
 esac
 echo "Remount /system r/o..." 
 mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
@@ -67,5 +67,5 @@ echo "Android Kexec kernel installer V1.5 - Done!"
 echo ""
 echo "Press enter to continue or ctr+c to exit"
 read
-sh ./AKBI_v2.5.sh
+sh ./AKBI.sh
 

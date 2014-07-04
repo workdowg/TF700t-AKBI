@@ -15,18 +15,27 @@ This is a menu driven Android terminal based installer.
 You will need the following:
 
 Prerequisites:
+
 1- A working CROMi-X 5.4 w/ that10 or CROMBi-KK install
  on INTERNAL SD (no f2fs,data2fs or rom2sd)
+
 2- A terminal emulator app (tested on Android Terminal Emulator)
+
 3- Text editor (tested on Jota Editor - Not Jota+)
+
 4- Script must be run from the extracted directory
+
 5- Rootfs installer - USE ONLY ONE rootfs.tar.lzma file and
  it must be in installer directory
 
 Running this script:
+
 1- Open emulator and get root - su
+
 2- cd to the directory you extracted this to
-3- Run the script - sh AKBI_v2.5.sh
+
+3- Run the script - sh AKBI.sh
+
 4- Follow the prompts
 
 Profit!

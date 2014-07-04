@@ -61,4 +61,4 @@ echo "Kexecboot boot.cfg installer V1.5 - Done!"
 echo ""
 echo "Press enter to continue or ctr+c to exit"
 read
-sh ./AKBI_v2.5.sh
+sh ./AKBI.sh

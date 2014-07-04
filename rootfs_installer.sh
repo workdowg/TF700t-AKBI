@@ -65,7 +65,7 @@ if [ "$use_lzma" != "1" ] ; then
     echo ""
     echo "Enter to continue"
     read
-    sh ./AKBI_v2.5.sh
+    sh ./AKBI.sh
 fi
 lzma_name=$(ls *.lzma)
 echo ""
@@ -105,7 +105,7 @@ if [ -f "$kit/$rootfs_name" ] ; then
     echo ""
     echo "Enter to continue"
     read
-    sh ./AKBI_v2.5.sh
+    sh ./AKBI.sh
 fi
 internalsd_free=$(df /data|cut -d " " -f20|tr -d "\n"|cut -c5-)
 echo ""
@@ -130,7 +130,7 @@ case $n in
     3) rootfs_size=5 ;;
     4) rootfs_size=10 ;;
     5) rootfs_size=20 ;;
-    *) sh ./AKBI_v2.5.sh
+    *) sh ./AKBI.sh
 esac
 echo ""
 echo "************************************"
@@ -200,4 +200,4 @@ echo "   $kit/$rootfs_name"
 echo ""
 echo "   Press enter to continue"
 read
-sh ./AKBI_v2.5.sh
+sh ./AKBI.sh

@@ -62,4 +62,4 @@ echo "DONE! Please reboot and profit."
 echo "========================================================"
 echo "Press enter to continue or ctr+c to exit"
 read
-sh ./AKBI_v2.5.sh
+sh ./AKBI.sh
