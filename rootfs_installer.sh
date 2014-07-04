@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfs Installer v2.5.1
+#Android Kexecboot Rootfs Installer v2.5.1 - TF700t-AKBI
 # 06/20/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
@@ -65,7 +65,7 @@ if [ "$use_lzma" != "1" ] ; then
     echo ""
     echo "Enter to continue"
     read
-    sh ./AKBI.sh
+    sh ./TF700t-AKBI.sh
 fi
 lzma_name=$(ls *.lzma)
 echo ""
@@ -105,7 +105,7 @@ if [ -f "$kit/$rootfs_name" ] ; then
     echo ""
     echo "Enter to continue"
     read
-    sh ./AKBI.sh
+    sh ./TF700t-AKBI.sh
 fi
 internalsd_free=$(df /data|cut -d " " -f20|tr -d "\n"|cut -c5-)
 echo ""
@@ -130,7 +130,7 @@ case $n in
     3) rootfs_size=5 ;;
     4) rootfs_size=10 ;;
     5) rootfs_size=20 ;;
-    *) sh ./AKBI.sh
+    *) sh ./TF700t-AKBI.sh
 esac
 echo ""
 echo "************************************"
@@ -200,4 +200,4 @@ echo "   $kit/$rootfs_name"
 echo ""
 echo "   Press enter to continue"
 read
-sh ./AKBI.sh
+sh ./TF700t-AKBI.sh

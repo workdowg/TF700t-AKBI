@@ -34,7 +34,7 @@ Running this script:
 
 2- cd to the directory you extracted this to
 
-3- Run the script - sh AKBI.sh
+3- Run the script - sh TF700t-AKBI.sh
 
 4- Follow the prompts
 

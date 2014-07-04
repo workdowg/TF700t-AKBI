@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot blob Installer v2.5.1
+#Android Kexecboot blob Installer v2.5.1 - TF700t-AKBI
 # 06/20/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
@@ -44,6 +44,6 @@ echo "Android Kexec blob installer V1.5 - Done!"
 echo ""
 echo "Press enter to continue or ctr+c to exit"
 read
-sh ./AKBI.sh
+sh ./TF700t-AKBI.sh
 
 

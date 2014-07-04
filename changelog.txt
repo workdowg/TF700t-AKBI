@@ -2,8 +2,9 @@ TF700t-AKBI
 
 TF700t Android Kexecboot Installer Script
 
-v2.5.1 - 06/30/2014
+v2.5.1 - 07/3/2014
 --Added that10cm11 kernel for CROMBi-KK 6/17 release
+--Changed main script name and links to it
 
 v2.5 - 06/30/2014
 --Scripts and project names changed
