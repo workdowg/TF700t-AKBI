@@ -52,7 +52,7 @@ Credits:
 
 _that@xda kernel zImage and initrd.img files (latest source code: https://github.com/that1/android_kernel_asus_tf700t.git or forked at https://github.com/workdowg/android_kernel_asus_tf700t.git) files where extracted from _that@xda's that10 and that10cm kernel blobs with no other modifications.
 
-JoinTheRealms@xda, moreD_cn@xda and cogano@xda for their work on the kexec.blob. Current kexec.blob is courtesy of cogano@xda and includes a 10 sec time out to default to the PRIORITY=100 boot.cfg choice(latest cogano@xda source code: https://github.com/cogano/kexecboot.git or forked at https://github.com/workdowg/kexecboot.git)
+JoinTheRealms@xda, moreD_cn@xda and cogano@xda for their work on the kexec.blob. Current kexec.blob is courtesy of cogano@xda and includes a 10 sec time out to default to the PRIORITY=100 boot.cfg choice(moreD_CN@xda source code: https://github.com/cogano/kexecboot.git or forked at https://github.com/workdowg/kexecboot.git)
 
 _sbdags@xda For his work on CROMi-X CROMBi-KK
 
