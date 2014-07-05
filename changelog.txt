@@ -2,6 +2,10 @@ TF700t-AKBI
 
 TF700t Android Kexecboot Installer Script
 
+v2.5.2 - 07/5/2014
+--More typos
+--Error checking for rootfs image size - it now won't try to make an image larger than your SD 
+
 v2.5.1 - 07/3/2014
 --Added that10cm11 kernel for CROMBi-KK 6/17 release
 --Changed main script name and links to it

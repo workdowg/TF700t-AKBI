@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfs Installer v2.5.1 - TF700t-AKBI
-# 06/20/2014
+#Android Kexecboot Rootfs Installer v2.5.2 - TF700t-AKBI
+# 07/5/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -69,11 +69,7 @@ if [ "$use_lzma" != "1" ] ; then
 fi
 lzma_name=$(ls *.lzma)
 echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo "   Using: $lzma_name "
+echo "   Using: $lzma_name for install"
 echo ""
 #set rootfs image name
 echo ""
@@ -107,12 +103,12 @@ if [ -f "$kit/$rootfs_name" ] ; then
     read
     sh ./TF700t-AKBI.sh
 fi
-internalsd_free=$(df /data|cut -d " " -f20|tr -d "\n"|cut -c5-)
+internalsd_free=$(df /data | awk 'NR==2{print$4}'| sed 's/.$//')
 echo ""
 echo "************************************"
 echo ""
 echo "   Space avialable on Internal SD:"
-echo "   $internalsd_free"
+echo "   $internalsd_free GB"
 echo ""
 echo "   Select desired rootfs image size"
 echo ""
@@ -122,8 +118,9 @@ echo "   3) 5 - GB"
 echo "   4) 10 - GB"
 echo "   5) 20 - GB"
 echo "   Any other key to exit"
+echo ""
 read n
-
+echo ""
 case $n in
     1) rootfs_size=3 ;;
     2) rootfs_size=4 ;;
@@ -132,6 +129,14 @@ case $n in
     5) rootfs_size=20 ;;
     *) sh ./TF700t-AKBI.sh
 esac
+if [ "$rootfs_size" -gt "$internalsd_free" ]
+	then echo "Not enough room on internal sd. Choose installer"
+	echo "again and choose a smaller size for the image"
+	echo ""
+	echo "Press enter to continue"
+	read
+	sh ./TF700t-AKBI.sh
+fi
 echo ""
 echo "************************************"
 echo ""

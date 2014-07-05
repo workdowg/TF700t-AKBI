@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Installer v2.5.1
+#Android Kexecboot Installer v2.5.2 - TF700t-AKBI
 # 06/20/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
