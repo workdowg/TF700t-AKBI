@@ -46,8 +46,9 @@ echo ""
 echo ""
 echo ""
 echo "1 - CROMi-X that10 kernel"
-echo "2 - CROMBi-X pre 6/17/2014 release - thatcm11 kernel"
-echo "3 - CROMBi-X 6/17/2014 release - that10cm11"
+echo "2 - CROMBi-KK pre 6/17/2014 release - thatcm11 kernel"
+echo "3 - CROMBi-KK 6/17/2014 release - that10cm11"
+echo "4 - CROMBi-KK 7/13/2014 release - hardslog Grimlock
 echo "Any other key exits"
 read kernel_ver
 echo "Mounting /system r/w..."
@@ -57,6 +58,7 @@ case $kernel_ver in
     1) cp that10/* /system/boot/ ;;
     2) cp thatcm11/* /system/boot/ ;;
     3) cp that10cm11/* /system/boot/ ;;
+    3) cp grimcm111/* /system/boot/ ;;
     *) sh ./TF700t-AKBI.sh
 esac
 echo "Remount /system r/o..." 
