@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfs Installer v2.5.2 - TF700t-AKBI
+#Android Kexecboot Rootfs Installer - TF700t-AKBI v2.5.3
 # 07/5/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
