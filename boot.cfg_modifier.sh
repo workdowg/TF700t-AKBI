@@ -32,8 +32,6 @@ echo "Kexecboot boot.cfg modifier V1.5 by workdowg@xda"
 echo "========================================================"
 echo ""
 echo ""
-echo "Press enter to continue or ctr+c to exit"
-read
 
 #make temp directories
 mkdir -p /data/media/0/kexectemp1
