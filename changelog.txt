@@ -1,6 +1,11 @@
-TF700t-AKBI v2.5.3
+TF700t-AKBI v2.5.4
 
 TF700t Android Kexecboot Installer Script
+
+v2.5.4 - 07/14/2014
+--Added stockcm11 kernel
+--Added stock CROMi-X (JB) kernel
+--Fixed more typo's (as usual)
 
 v2.5.3 - 07/13/2014
 --Add hardslog's CROMBi-KK cm11 kernel

@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.3
+#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.4
 # 06/20/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
@@ -46,9 +46,11 @@ echo ""
 echo ""
 echo ""
 echo "1 - CROMi-X that10 kernel"
-echo "2 - CROMBi-KK pre 6/17/2014 release - thatcm11 kernel"
-echo "3 - CROMBi-KK 6/17/2014 release - that10cm11"
-echo "4 - CROMBi-KK 7/13/2014 release - hardslog Grimlock
+echo "2 - CROMi-X stock kernel"
+echo "3 - CROMBi-KK pre  6/17/2014 release - thatcm11 kernel"
+echo "4 - CROMBi-KK post 6/17/2014 release - that10cm11"
+echo "5 - CROMBi-KK 7/13/2014 release - hardslog Grimlock"
+echo "6 - CROMBi-KK 7/13/2014 release - stock cm11 kernel"
 echo "Any other key exits"
 read kernel_ver
 echo "Mounting /system r/w..."
@@ -56,9 +58,11 @@ mount -o remount,rw -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mo
 mkdir -p /system/boot
 case $kernel_ver in
     1) cp that10/* /system/boot/ ;;
-    2) cp thatcm11/* /system/boot/ ;;
-    3) cp that10cm11/* /system/boot/ ;;
-    3) cp grimcm111/* /system/boot/ ;;
+    2) cp stockJB/* /system/boot/ ;;
+    3) cp thatcm11/* /system/boot/ ;;
+    4) cp that10cm11/* /system/boot/ ;;
+    5) cp grimcm111/* /system/boot/ ;;
+    6) cp stockcm11/* /system/boot/ ;;
     *) sh ./TF700t-AKBI.sh
 esac
 echo "Remount /system r/o..." 
