@@ -1,6 +1,11 @@
-TF700t-AKBI v2.5.4
+TF700t-AKBI v2.5.5
 
 TF700t Android Kexecboot Installer Script
+
+v2.5.5 - 07/19/2014
+--Updated CROMBi-KK Kernels
+--Only including latest kernel blob images, should work for all versions
+--Changed folder structure
 
 v2.5.4 - 07/14/2014
 --Added stockcm11 kernel
@@ -8,7 +13,7 @@ v2.5.4 - 07/14/2014
 --Fixed more typo's (as usual)
 
 v2.5.3 - 07/13/2014
---Add hardslog's CROMBi-KK cm11 kernel
+--Add hardslog's grimlock CROMBi-KK cm11 kernel
 
 v2.5.2 - 07/5/2014
 --More typos
