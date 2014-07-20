@@ -4,7 +4,7 @@ TF700t Android Kexecboot Installer Script
 
 v2.5.5 - 07/19/2014
 --Updated CROMBi-KK Kernels
---Only including latest kernel blob images, should work for all versions
+--All zImage and initrd.img files now extracted from latest kernel blobs only (should work for all versions)
 --Changed folder structure
 
 v2.5.4 - 07/14/2014
