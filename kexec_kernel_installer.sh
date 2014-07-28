@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.5
-# 06/20/2014
+#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.6
+# 07/28/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -37,7 +37,7 @@ echo ""
 echo ""
 echo ""
 echo "========================================================"
-echo "Android Kexec kernel installer V1.5 by workdowg@xda"
+echo "Android Kexec kernel installer by workdowg@xda"
 echo "========================================================"
 echo ""
 echo ""
@@ -67,7 +67,7 @@ echo "Remount /system r/o..."
 mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
 echo ""
 echo ""
-echo "Android Kexec kernel installer V1.5 - Done!"
+echo "Android Kexec kernel installer - Done!"
 echo ""
 echo "Press enter to continue or ctr+c to exit"
 read

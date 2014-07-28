@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot Installer - TF700t-AKBI v2.5.5
-# 06/20/2014
+#Android Kexecboot Installer - TF700t-AKBI v2.5.6
+# 07/28/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -25,26 +25,32 @@ echo ""
 echo ""
 echo "************************************"
 echo "*   Android Kexecboot Installer "
-echo "*    for the TF700t v2.5 "
+echo "*       TF700t-AKBI v2.5.6 "
 echo "************************************"
 echo ""
 echo ""
 echo ""
 
 echo "Please choose your need..."
+echo ""
+echo " The rootfs installer now allows you to"
+echo " add an entry for your new rootfs image in"
+echo " the boot.cfg."
+echo ""
+
 echo "1 - Kexec Blob Install/Update"
 echo "2 - Android Kexec Kernel Install/Update"
-echo "3 - Boot.cfg Install"
-echo "4 - Boot.cfg Manual Editor"
-echo "5 - Rootfs Installer "
+echo "3 - Rootfs/boot.cfg Installer "
+echo "4 - Default Boot.cfg Install"
+echo "5 - Boot.cfg Manual Editor"
 echo "Any other key to exit"
 read n
 
 case $n in
     1) sh ./blob_installer.sh ;;
     2) sh ./kexec_kernel_installer.sh ;;
-    3) sh ./boot.cfg_installer.sh ;;
-    4) sh ./boot.cfg_modifier.sh ;;
-    5) sh ./rootfs_installer.sh ;;
+    3) sh ./rootfs_installer.sh ;;
+    4) sh ./boot.cfg_installer.sh ;;
+    5) sh ./boot.cfg_modifier.sh ;;
     *) exit
 esac

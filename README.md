@@ -1,6 +1,6 @@
 
 =======
-TF700t-AKBI v2.5.5
+TF700t-AKBI v2.5.6
 ===========
 
 TF700t Android Kexecboot Installer Script
@@ -8,9 +8,14 @@ TF700t Android Kexecboot Installer Script
 This installer script allows you to go through a kexecboot and
 rootfs install. 
 
-If this is your first install, follow the menu
-choices in order. And although the scripts have some error
-checking, be sure, as always, to make sure you have a current backup... 
+If this is your first install, you will need to follow the first
+ 3 menu choices. Menu choices 4 and 5 are now optional. Choice 4 installs
+ the default boot.cfg sample file, or restore your original by renaming the
+ backup boot.cfg.old to boot.cfg. Choice 5 allows you to modify the boot.cfg
+ from an Android text editor (Jota).
+
+And although the scripts have some error checking, be
+ sure, as always, to make sure you have a current backup... 
 
 This is a menu driven Android terminal based installer. 
 

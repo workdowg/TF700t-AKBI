@@ -1,10 +1,13 @@
-TF700t-AKBI v2.5.5
+TF700t-AKBI v2.5.6
 
 TF700t Android Kexecboot Installer Script
 
+v2.5.6 - 07/28/2014
+--Added ability to install/add current entry to boot.cfg in rootfs installer
+
 v2.5.5 - 07/19/2014
 --Updated CROMBi-KK Kernels
---All zImage and initrd.img files now extracted from latest kernel blobs only (should work for all versions)
+--Only including latest kernel blob images, should work for all versions
 --Changed folder structure
 
 v2.5.4 - 07/14/2014

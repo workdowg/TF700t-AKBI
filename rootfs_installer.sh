@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfs Installer - TF700t-AKBI v2.5.5
-# 07/5/2014
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.6
+# 07/28/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -36,7 +36,7 @@ echo ""
 echo ""
 echo "************************************"
 echo "*   Linux Rootfs Installer "
-echo "*    for the TF700t v2.5 "
+echo "*    for the TF700t"
 echo "************************************"
 #show busybox version
 bb_ver=$(busybox|head -n1|cut -d " " -f2)
@@ -119,9 +119,9 @@ echo "   4) 10 - GB"
 echo "   5) 20 - GB"
 echo "   Any other key to exit"
 echo ""
-read n
+read z
 echo ""
-case $n in
+case $z in
     1) rootfs_size=3 ;;
     2) rootfs_size=4 ;;
     3) rootfs_size=5 ;;
@@ -137,6 +137,16 @@ if [ "$rootfs_size" -gt "$internalsd_free" ]
 	read
 	sh ./TF700t-AKBI.sh
 fi
+#write entry to boot.cfg?
+echo "" 
+echo "   How would you like to write this new "
+echo "    entry into the boot.cfg?"
+echo "   1) Write new boot.cfg"
+echo "   2) Add entry to end (CAUTION !! MUST HAVE A boot.cfg ALREADY INSTALLED!!)"
+echo "   3) Continue without modifing"
+echo ""
+read n
+echo ""
 echo ""
 echo "************************************"
 echo ""
@@ -194,14 +204,101 @@ sleep 15
 busybox umount $mnt
 busybox losetup -d /dev/block/loop250 || echo "Loop device not disassociated, Please reboot before using rootfs installer again."
 mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system
+#boot.cfg modify/add
+case $n in
+    1)  mkdir -p /data/media/0/kexecbootcfg
+		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
+		echo "Backing up boot.cfg..."
+		if [ -e /data/media/0/kexecbootcfg/multiboot/boot.cfg ]
+		then cp /data/media/0/kexecbootcfg/multiboot/boot.cfg boot.cfg.old
+		fi
+		mkdir -p /data/media/0/kexecbootcfg/multiboot/
+		echo '#Auto entry from rootfs installer script - 1st install#' > /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo '#Android#' >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "LABEL=CROMi-X or CROMBi-KK" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "BOOT=3" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "DEVICE=/dev/mmcblk0p1" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "DIR=/" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "KERNEL=/boot/zImage" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "INITRD=/boot/initrd.img" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "PRIORITY=100" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo '#Auto entry from rootfs installer script#' >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "LABEL=$rootfs_name file on /data/media/linux" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "BOOT=7" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "DEVICE=/dev/mmcblk0p8" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "IMAGE=/media/linux/$rootfs_name" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "KERNEL=/boot/zImage" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "INITRD=/boot/initrd.img" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "PRIORITY=99" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo ""
+		echo ""
+		echo "Copying new boot.cfg..."
+		echo ""
+		echo ""
+		echo "Waiting for sync..."
+		sleep 10
+		umount /data/media/0/kexecbootcfg/
+		rm -r /data/media/0/kexecbootcfg ;;
+	2) mkdir -p /data/media/0/kexecbootcfg
+		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
+		echo "Backing up boot.cfg..."
+		if [ -e /data/media/0/kexecbootcfg/multiboot/boot.cfg ]
+		then cp /data/media/0/kexecbootcfg/multiboot/boot.cfg boot.cfg.old
+		getpriority="$(grep -F "PRIORITY=" /data/media/0/kexecbootcfg/multiboot/boot.cfg|cut -d"=" -f 2|sort -n|head -1)"
+		setpriority="$(expr $getpriority - 1)"
+		fi
+		mkdir -p /data/media/0/kexecbootcfg/multiboot/
+		echo "" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo '#Auto entry from rootfs installer script - added#' >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "LABEL=$rootfs_name file on /data/media/linux" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "BOOT=7" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "DEVICE=/dev/mmcblk0p8" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "IMAGE=/media/linux/$rootfs_name" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "KERNEL=/boot/zImage" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "INITRD=/boot/initrd.img" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo "PRIORITY=$setpriority" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo ""
+		echo ""
+		echo "Copying new boot.cfg..."
+		echo ""
+		echo ""
+		echo "Waiting for sync..."
+		sleep 10
+		umount /data/media/0/kexecbootcfg/
+		rm -r /data/media/0/kexecbootcfg ;;
+    3)  echo ""
+		echo "   Boot.cfg not modified"
+		echo ""
+		echo "   Don't forget to run the Boot.cfg installer"
+		echo "   and or Modifiier if needed"
+		echo "   and add your new rootfs:"
+		echo ""
+		echo "   $kit/$rootfs_name"
+		echo ""
+		echo "   Press enter to continue"
+		read
+		sh ./TF700t-AKBI.sh ;;
+    *)  echo ""
+		echo "   Boot.cfg not modified"
+		echo ""
+		echo "   Don't forget to run the Boot.cfg installer"
+		echo "   and or Modifiier if needed"
+		echo "   and add your new rootfs:"
+		echo ""
+		echo "   $kit/$rootfs_name"
+		echo ""
+		echo "   Press enter to continue"
+		read
+		sh ./TF700t-AKBI.sh
+esac 
 echo ""
 echo "   Done."
 echo ""
-echo "   Don't forget to run the Boot.cfg installer"
-echo "   and or Modifiier"
-echo "   and add your new rootfs:"
+echo "   Your rootfs named : $kit/$rootfs_name"
+echo "   has been installed and a boot.cfg"
+echo "   was added or modified"
 echo ""
-echo "   $kit/$rootfs_name"
 echo ""
 echo "   Press enter to continue"
 read
