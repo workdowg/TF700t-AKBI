@@ -1,8 +1,11 @@
-TF700t-AKBI v2.5.6
+TF700t-AKBI v2.5.7
 
 TF700t Android Kexecboot Installer Script
 
-v2.5.6 - 07/28/2014
+v2.5.7 - 07/30/2014
+--Fixed kernel installer error checking
+
+v2.5.6 - 07/30/2014
 --Added ability to install/add current entry to boot.cfg in rootfs installer
 
 v2.5.5 - 07/19/2014
