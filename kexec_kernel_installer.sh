@@ -15,7 +15,7 @@ if [ "$perm" != "0" ]; then
 fi
 
 #Test for correct directory
-if [ ! -d "that10/" ] ; then
+if [ ! -d "CROMi-X_that10/" ] ; then
 	echo ""
 	echo ""
 	echo ""
