@@ -1,6 +1,6 @@
 #!/system/bin/sh
 #Android Kexecboot Installer - TF700t-AKBI v2.5.8
-# 07/30/2014
+# 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -41,7 +41,7 @@ echo ""
 echo "1 - Kexec Blob Install/Update"
 echo "2 - Android Kexec Kernel Install/Update"
 echo "3 - Rootfs/boot.cfg Installer "
-echo "4 - Default Boot.cfg Install"
+echo "4 - Boot.cfg Install/Restore"
 echo "5 - Boot.cfg Manual Editor"
 echo "Any other key to exit"
 read n
