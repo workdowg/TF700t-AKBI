@@ -65,13 +65,21 @@ case $z in
 		echo "Press enter to continue or ctr+c to exit"
 		read
 		sh ./TF700t-AKBI.sh ;;
-	2)  mkdir -p /data/media/0/kexecbootcfg
-		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
-		ls *.old
+	2)  ls *.old || echo "No boot.cfg.old found"
+		echo ""
+		ls
+		echo ""
 		echo "Enter a file to restore..."
 		echo ""
 		read oldfile
+		if [ ! -f "$oldfile" ] ; then
 		echo ""
+		echo "File doesn't exist or entred wrong, run installer again."
+		exit 1
+		fi
+		echo ""
+		mkdir -p /data/media/0/kexecbootcfg
+		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
 		cp -f "$oldfile" /data/media/0/kexecbootcfg/multiboot/boot.cfg
 		echo ""
 		echo ""
@@ -88,7 +96,7 @@ case $z in
 		echo ""
 		echo "Press enter to continue or ctr+c to exit"
 		read
-		sh ./TF700t-AKBI.sh ;; ;;
+		sh ./TF700t-AKBI.sh ;;
     3) echo "Exiting..."
 		echo ""
 		exit 1 ;;
