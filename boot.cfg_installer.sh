@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot boot.cfg Installer - TF700t-AKBI v2.5.8
-# 07/30/2014
+#Android Kexecboot boot.cfg/restorer Installer - TF700t-AKBI v2.5.8
+# 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
 
@@ -28,37 +28,73 @@ echo ""
 echo ""
 echo ""
 echo "========================================================"
-echo "Kexecboot boot.cfg installer by workdowg@xda"
+echo "Kexecboot boot.cfg installer/restorer by workdowg@xda"
 echo "========================================================"
 echo ""
 echo ""
-echo "We will also backup your exsisting boot.cfg"
-echo "here as boot.cfg.old"
+echo "With this script you can:"
 echo ""
+echo "1) Install default boot.cfg (and backup exsisting)"
+echo "2) Restore boot.cfg.old (NO backup of exsisting)"
+echo "3) Exit"
 echo ""
-echo "Press enter to continue or ctr+c to exit"
+read z
+echo ""
+case $z in
+    1) mkdir -p /data/media/0/kexecbootcfg
+		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
+		echo "Backing up boot.cfg..."
+		if [ -f /data/media/0/kexecbootcfg/multiboot/boot.cfg ]
+		then cp -f /data/media/0/kexecbootcfg/multiboot/boot.cfg boot.cfg.old
+		fi
+		mkdir -p /data/media/0/kexecbootcfg/multiboot/
+		cp boot.cfg /data/media/0/kexecbootcfg/multiboot/
+		echo ""
+		echo ""
+		echo "Copying default boot.cfg..."
+		echo ""
+		echo ""
+		echo "Waiting for sync..."
+		sleep 10
+		umount /data/media/0/kexecbootcfg/
+		rm -r /data/media/0/kexecbootcfg
+		echo ""
+		echo ""
+		echo "Kexecboot boot.cfg installer - Done!"
+		echo ""
+		echo "Press enter to continue or ctr+c to exit"
+		read
+		sh ./TF700t-AKBI.sh ;;
+	2)  mkdir -p /data/media/0/kexecbootcfg
+		mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
+		ls *.old
+		echo "Enter a file to restore..."
+		echo ""
+		read oldfile
+		echo ""
+		cp -f "$oldfile" /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo ""
+		echo ""
+		echo "Restoring $oldfile ..."
+		echo ""
+		echo ""
+		echo "Waiting for sync..."
+		sleep 10
+		umount /data/media/0/kexecbootcfg/
+		rm -r /data/media/0/kexecbootcfg
+		echo ""
+		echo ""
+		echo "Kexecboot boot.cfg installer - Done!"
+		echo ""
+		echo "Press enter to continue or ctr+c to exit"
+		read
+		sh ./TF700t-AKBI.sh ;; ;;
+    3) echo "Exiting..."
+		echo ""
+		exit 1 ;;
+    *) echo "Invalid selection, run installer again"
+		echo ""
+		exit
+esac
 read
-mkdir -p /data/media/0/kexecbootcfg
-mount -t vfat /dev/block/mmcblk0p5 /data/media/0/kexecbootcfg/
-echo "Backing up boot.cfg..."
-if [ -e /data/media/0/kexecbootcfg/multiboot/boot.cfg ]
- then cp /data/media/0/kexecbootcfg/multiboot/boot.cfg boot.cfg.old
-fi
-mkdir -p /data/media/0/kexecbootcfg/multiboot/
-cp boot.cfg /data/media/0/kexecbootcfg/multiboot/
-echo ""
-echo ""
-echo "Copying new boot.cfg..."
-echo ""
-echo ""
-echo "Waiting for sync..."
-sleep 10
-umount /data/media/0/kexecbootcfg/
-rm -r /data/media/0/kexecbootcfg
-echo ""
-echo ""
-echo "Kexecboot boot.cfg installer - Done!"
-echo ""
-echo "Press enter to continue or ctr+c to exit"
-read
-sh ./TF700t-AKBI.sh
+
