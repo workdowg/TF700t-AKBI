@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.7
-# 07/30/2014
+#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.8
+# 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to 
 
@@ -61,7 +61,8 @@ case $kernel_ver in
     3) cp CROMBi-KK_that10/* /system/boot/ ;;
     4) cp CROMBi-KK_grim/* /system/boot/ ;;
     5) cp CROMBi-KK_Stock/* /system/boot/ ;;
-    *) sh ./TF700t-AKBI.sh
+    *) mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
+    exit 1
 esac
 echo "Remount /system r/o..." 
 mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"

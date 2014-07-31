@@ -1,6 +1,6 @@
 
 =======
-TF700t-AKBI v2.5.7
+TF700t-AKBI v2.5.8
 ===========
 
 TF700t Android Kexecboot Installer Script
@@ -38,6 +38,8 @@ Prerequisites:
 Running this script:
 
 1- Download the latest zip here - http://forum.xda-developers.com/showthread.php?t=2387133
+
+2- Delete old TF700t-AKBI folder. DO NOT extract new files to old directory!
 
 2- Extract to /sdcard or your favorite place
 

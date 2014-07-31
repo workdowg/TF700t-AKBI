@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.7
-# 07/30/2014
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.8
+# 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
 
@@ -33,7 +33,7 @@ export PATH=$bin:/usr/bin:/usr/local/bin:/usr/sbin:/bin:/usr/local/sbin:/usr/gam
 echo ""
 echo ""
 echo ""
-echo ""
+ echo ""
 echo "************************************"
 echo "*   Linux Rootfs Installer "
 echo "*    for the TF700t"
@@ -65,7 +65,7 @@ if [ "$use_lzma" != "1" ] ; then
     echo ""
     echo "Enter to continue"
     read
-    sh ./TF700t-AKBI.sh
+    exit 1
 fi
 lzma_name=$(ls *.lzma)
 echo ""
@@ -92,18 +92,33 @@ echo ""
 echo ""
 echo ""
 read rootfs_name
+#check for valid entry
+if [ "$rootfs_name" == "" ] ; then
+	echo "Invalid input. Run installer again"
+	echo ""
+	exit 1
+fi
 echo ""
+#add extension if missed
+correctext="$(echo "$rootfs_name" | rev | cut -d"." -f 1 | rev)"
+if [ "$correctext" != "img" ] ; then
+	rootfs_name="$(echo "$rootfs_name"| cut -d"." -f 1)".img
+fi
 #check if image name exists
 if [ -f "$kit/$rootfs_name" ] ; then
     echo "File exists!"
     echo "Please choose the installer again"
     echo " and type a UNIQUE name carefully."
     echo ""
+    echo "Here are the current image names:"
+    echo ""
+    ls $kit/
     echo "Enter to continue"
     read
-    sh ./TF700t-AKBI.sh
+    exit 1
 fi
-internalsd_free=$(df /data | awk 'NR==2{print$4}'| sed 's/.$//')
+internalsd_free=$(df /data | awk 'NR==2{print$4}'|sed 's/.$//')
+#internalsd_free=$(df /data | awk 'NR==2{print$4}'| cut -d"." -f 1)
 echo ""
 echo "************************************"
 echo ""
@@ -127,15 +142,17 @@ case $z in
     3) rootfs_size=5 ;;
     4) rootfs_size=10 ;;
     5) rootfs_size=20 ;;
-    *) sh ./TF700t-AKBI.sh
+    *) echo "Invalid selection, run installer again"
+		echo ""
+		exit
 esac
 if [ "$rootfs_size" -gt "$internalsd_free" ]
-	then echo "Not enough room on internal sd. Choose installer"
+	then echo "Not enough room on internal sd. Run installer"
 	echo "again and choose a smaller size for the image"
 	echo ""
 	echo "Press enter to continue"
 	read
-	sh ./TF700t-AKBI.sh
+	exit 1
 fi
 #write entry to boot.cfg?
 echo "" 
@@ -146,6 +163,12 @@ echo "   2) Add entry to end (CAUTION !! MUST HAVE A boot.cfg ALREADY INSTALLED!
 echo "   3) Continue without modifing"
 echo ""
 read n
+#check for valid input
+if [ "$n" == "" ] ; then
+	echo "Invalid input. Run installer again"
+	echo ""
+	exit 1
+fi
 echo ""
 echo ""
 echo "************************************"
@@ -278,7 +301,7 @@ case $n in
 		echo ""
 		echo "   Press enter to continue"
 		read
-		sh ./TF700t-AKBI.sh ;;
+		exit 1 ;;
     *)  echo ""
 		echo "   Boot.cfg not modified"
 		echo ""
@@ -290,7 +313,7 @@ case $n in
 		echo ""
 		echo "   Press enter to continue"
 		read
-		sh ./TF700t-AKBI.sh
+		exit 1
 esac 
 echo ""
 echo "   Done."
