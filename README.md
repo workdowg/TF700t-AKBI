@@ -1,6 +1,6 @@
 
 =======
-TF700t-AKBI v2.5.8
+TF700t-AKBI v2.5.9
 ===========
 
 TF700t Android Kexecboot Installer Script

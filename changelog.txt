@@ -1,6 +1,10 @@
-TF700t-AKBI v2.5.8
+TF700t-AKBI v2.5.9
 
 TF700t Android Kexecboot Installer Script
+
+v2.5.9 - 08/5/2014
+--Added back support for CROMBi-KK
+--More error checking
 
 v2.5.8 - 07/31/2014
 --More error checking and better error exiting
