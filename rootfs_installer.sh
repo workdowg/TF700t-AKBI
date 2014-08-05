@@ -1,6 +1,6 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.8
-# 07/31/2014
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.9
+# 08/05/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
 
@@ -117,13 +117,38 @@ if [ -f "$kit/$rootfs_name" ] ; then
     read
     exit 1
 fi
-internalsd_free=$(df /data | awk 'NR==2{print$4}'|sed 's/.$//')
-#internalsd_free=$(df /data | awk 'NR==2{print$4}'| cut -d"." -f 1)
+#check for internalsd space
+inter_a=$(df /data | awk 'NR==2{print$4}'|tail -c 2)
+inter_b=$(df /data | awk 'NR==2{print$4}')
+inter_c=${inter_b%.*}
+if [ ! $inter_a = "G" ] ; then
+	echo "You have less than 1GB of free"
+	echo "on your internal SD"
+	echo "You will need to make room for"
+	echo "the installer to work. Minimum is"
+	echo "4GB. You only have $inter_b"
+	echo ""
+	echo "Press enter to continue"
+	read
+	exit 1
+fi
+if [ "$inter_c" -lt "4" ] ; then
+	echo "You have less than 4GB of free"
+	echo "on your internal SD"
+	echo "You will need to make room for"
+	echo "the installer to work. Minimum is"
+	echo "4GB. You only have $inter_b"
+	echo ""
+	echo "Press enter to continue"
+	read
+	exit 1
+fi
+#select rootfs image size
 echo ""
 echo "************************************"
 echo ""
 echo "   Space avialable on Internal SD:"
-echo "   $internalsd_free GB"
+echo "   $inter_b"
 echo ""
 echo "   Select desired rootfs image size"
 echo ""
@@ -146,9 +171,12 @@ case $z in
 		echo ""
 		exit
 esac
-if [ "$rootfs_size" -gt "$internalsd_free" ]
-	then echo "Not enough room on internal sd. Run installer"
-	echo "again and choose a smaller size for the image"
+#check rootfs image size againt available space
+if [ "$rootfs_size" -gt "$inter_c" ] ; then
+	echo "Not enough room on the internal sd."
+	echo "Internal space= $inter_b , You chose $rootfs_size"
+	echo "Please run the installer again"
+	echo "and choose a smaller size for the image"
 	echo ""
 	echo "Press enter to continue"
 	read
@@ -192,11 +220,15 @@ echo ""
 #mount system rw
 mount -o remount,rw -t ext4 /dev/block/mmcblk0p1 /system
 #create image file
-busybox dd if=/dev/zero of="$kit"/"$rootfs_name" seek=1G bs="$rootfs_size" count=0
+busybox dd if=/dev/zero of="$kit"/"$rootfs_name" seek=1G bs="$rootfs_size" count=0 || echo "File created anyway"
 echo ""
 echo "Formating image file..."
 echo ""
-busybox mke2fs -F "$kit"/"$rootfs_name"
+if grep -q crombi < /system/build.prop ; then
+	mke2fs -F -t ext4 "$kit"/"$rootfs_name"
+	else
+	busybox mke2fs -F "$kit"/"$rootfs_name"
+fi
 #mount loop device
 echo ""
 echo "Mounting loop device..."
@@ -272,7 +304,7 @@ case $n in
 		setpriority="$(expr $getpriority - 1)"
 		fi
 		mkdir -p /data/media/0/kexecbootcfg/multiboot/
-		echo "" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
+		echo " " >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
 		echo '#Auto entry from rootfs installer script - added#' >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
 		echo "LABEL=$rootfs_name file on /data/media/linux" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
 		echo "BOOT=7" >> /data/media/0/kexecbootcfg/multiboot/boot.cfg
