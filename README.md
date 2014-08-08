@@ -42,9 +42,9 @@ And although the scripts have some error checking, be
 
 3- Place **ONE** "rootfs.tar.lzma" file in the extracted directory, example files here - http://forum.xda-developers.com/showthread.php?t=2387133
 
-4- Open emulator and get root - su
+4- Open terminal and get root - su
 
-5- cd to the directory you extracted installer to
+5- cd to the directory you extracted the installer to
 
 6- Run the script - sh TF700t-AKBI.sh (For a first time install select menu item 1)
 
