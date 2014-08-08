@@ -54,6 +54,8 @@ Profit!
 
 **Running the installer for the first time:**
 
+*If you are using KitKat (CROMBi-KK), the rootfs installer will only make a 3GB image file. If you need a bigger image you will need to use one of the Aroma recovery based installers.*
+
 1) Copy a "rootfs.tar.lzma" file (see examples below) to the directory you extracted the
 installer to (ex. - /sdcard/TF700t-AKBI-v2.X.X/ ). There can only be **ONE** "rootfs.tar.lzma" file in the install directory at one time.
 
