@@ -6,7 +6,7 @@ v2.6.1 - Final - 08/08/2014
 --Added all in one first time install script
 --More error checking
 --Final version
---Limited rootfs image filesize to 3GB (need to use old Aroma installers for larger sizes)
+--Limited rootfs image filesize to 3GB on KitKat(CROMBi-KK) -need to use old Aroma installers for larger sizes
 
 v2.5.9 - 08/5/2014
 --Added back support for CROMBi-KK
