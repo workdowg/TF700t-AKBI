@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.5.9
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.6.0
 # 08/05/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
@@ -12,6 +12,9 @@ if [ "$perm" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+#cd into correct directory
+workingdir=$(dirname "$0")
+cd $workingdir
 #Test for correct directory
 if [ ! -f boot.cfg ] ; then
     echo "You are not running this script"
@@ -186,6 +189,7 @@ fi
 echo "" 
 echo "   How would you like to write this new "
 echo "    entry into the boot.cfg?"
+echo ""
 echo "   1) Write new boot.cfg"
 echo "   2) Add entry to end (CAUTION !! MUST HAVE A boot.cfg ALREADY INSTALLED!!)"
 echo "   3) Continue without modifing"

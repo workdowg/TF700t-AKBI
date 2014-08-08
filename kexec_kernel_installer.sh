@@ -1,19 +1,20 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer - TF700t-AKBI v2.5.9
+#Android Kexecboot kernel Installer - TF700t-AKBI v2.6.0
 # 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to 
-
+#
 # fail on errors
 set -e
-
 #Test for root access
 perm=$(id|cut -b 5)
 if [ "$perm" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
-
+#cd into correct directory
+workingdir=$(dirname "$0")
+cd $workingdir
 #Test for correct directory
 if [ ! -d "CROMi-X_that10/" ] ; then
 	echo ""
@@ -23,14 +24,6 @@ if [ ! -d "CROMi-X_that10/" ] ; then
     echo "from the correct directory. Exiting"
     exit
 fi
-#test for current kernel
-#kernel_current=$(cat /proc/version |cut -d " " -f 3 )
-#if [ "$kernel_current" != "3.1.10-that10+" ] || [ "$kernel_current" != "3.1.10-10.6.1.14.-that8-oc+" ] ; then
-#	echo "You need to be running that10 or"
-#	echo "or CROMBi-KK to use this installer"
-#	exit 1
-#fi
-
 #Android kexec kernel installer 
 echo ""
 echo ""
