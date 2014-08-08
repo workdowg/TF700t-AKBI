@@ -8,7 +8,7 @@ TF700t Android Kexecboot Installer Script
 This installer script allows you to go through a kexecboot and
 rootfs install running from an Android terminal. 
 
-**If this is your first install, you only need to run menu item 1**
+*If this is your first install, you only need to run menu item 1*
 
 Menu items 5 and 6 are now optional. Choice 5 installs the default boot.cfg
  sample file, or can restore a backup named boot.cfg.old from the install
@@ -19,9 +19,7 @@ And although the scripts have some error checking, be
  sure, as always, to make sure you have a current backup... 
 
 
-You will need the following:
-
-Prerequisites:
+*Prerequisites:*
 
 1- A working CROMi-X 5.4 w/ that10 or CROMBi-KK install
  on INTERNAL SD (no f2fs,data2fs or rom2sd)
@@ -36,13 +34,13 @@ Prerequisites:
  it must be in installer directory
 
 
-Running this script:
+*Running this script:*
 
 1- Download the latest zip here - http://forum.xda-developers.com/showthread.php?t=2387133
 
 2- Extract to /sdcard or your favorite place
 
-3- Place *ONE* "rootfs.tar.lzma" file in the extracted directory
+3- Place *ONE* "rootfs.tar.lzma" file in the extracted directory, example files here - http://forum.xda-developers.com/showthread.php?t=2387133
 
 4- Open emulator and get root - su
 
