@@ -52,6 +52,32 @@ And although the scripts have some error checking, be
 
 Profit!
 
+**Running the installer for the first time:**
+
+1) Copy a "rootfs.tar.lzma" file (see examples below) to the directory you extracted the
+installer to (ex. - /sdcard/TF700t-AKBI-v2.X.X/ ). There can only be **ONE** "rootfs.tar.lzma" file in the install directory at one time.
+
+2) Using an Android terminal (suggest Android Terminal Emulator from the Playstore)
+cd into the installer directory (ex. - cd /sdcard/TF700t-AKBI-v2.X.X/ ) and become superuser (su)
+
+3) Run the script - (sh TF700t-AKBI.sh)
+
+4) Choose menu item 1 reading carefully and follow prompts
+
+5) Reboot and profit
+
+After you reboot it will bring you directly to the kexecboot menu which will have 2 choices:
+Android and your new rootfs. The kexecboot menu will time out after 10 seconds and boot to
+the highest priority OS (default is Android). To choose an OS to boot, use either the volume
+keys or dock arrow keys and select with the power button or dock enter key.
+
+
+**Using after install - Advanced users:**
+
+Installer menu item 4 allows you to install a boot.cfg from the installer directory. This can be any file named boot.cfg or boot.cfg.old (your backup file)
+
+Installer menu item 5 gives the opportunity to manually edit boot.cfg using a text editor (installer pauses while you switch to a text editor)
+
 =======
 
 Credits:
