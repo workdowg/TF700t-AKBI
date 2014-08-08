@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.0
+#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.1
 # 08/08/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
@@ -257,38 +257,38 @@ if [ "$inter_c" -lt "4" ] ; then
 	exit 1
 fi
 #select rootfs image size
-echo ""
-echo "************************************"
-echo ""
-echo "   Space avialable on Internal SD:"
-echo "   $inter_b"
-echo ""
-echo "   Select desired rootfs image size"
-echo ""
-echo "   1) 3 - GB"
-echo "   2) 4 - GB"
-echo "   3) 5 - GB"
-echo "   4) 10 - GB"
-echo "   5) 20 - GB"
-echo "   Any other key to exit"
-echo ""
-read z
-echo ""
-case $z in
-    1) rootfs_size=3 ;;
-    2) rootfs_size=4 ;;
-    3) rootfs_size=5 ;;
-    4) rootfs_size=10 ;;
-    5) rootfs_size=20 ;;
-    *) echo "Invalid selection."
-		echo "You will need to"
-		echo "run the main installer again starting with menu item 4."
-		echo ""
-		echo "Press enter to continue..."
-		echo ""
-		echo ""
+#select rootfs image size
+if grep -q crombi < /system/build.prop ; then
+	rootfs_size=3
+	else
+	echo ""
+	echo "************************************"
+	echo ""
+	echo "   Space avialable on Internal SD:"
+	echo "   $inter_b"
+	echo ""
+	echo "   Select desired rootfs image size"
+	echo ""
+	echo "   1) 3 - GB"
+	echo "   2) 4 - GB"
+	echo "   3) 5 - GB"
+	echo "   4) 10 - GB"
+	echo "   5) 20 - GB"
+	echo "   Any other key to exit"
+	echo ""
+	read z
+	echo ""
+	case $z in
+		1) rootfs_size=3 ;;
+		2) rootfs_size=4 ;;
+		3) rootfs_size=5 ;;
+		4) rootfs_size=10 ;;
+		5) rootfs_size=20 ;;
+		*) echo "Invalid selection, run installer again"
+			echo ""
 		exit
-esac
+	esac
+fi
 #check rootfs image size againt available space
 if [ "$rootfs_size" -gt "$inter_c" ] ; then
 	echo "Not enough room on the internal sd."
@@ -324,7 +324,7 @@ echo ""
 #mount system rw
 mount -o remount,rw -t ext4 /dev/block/mmcblk0p1 /system
 #create image file
-busybox dd if=/dev/zero of="$kit"/"$rootfs_name" seek=1G bs="$rootfs_size" count=0 || echo "File created anyway"
+busybox dd if=/dev/zero of="$kit"/"$rootfs_name" bs=1048576 seek="$rootfs_size"000 count=0 || echo "File created anyway"
 echo ""
 echo "Formating image file..."
 echo ""
