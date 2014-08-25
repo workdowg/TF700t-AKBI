@@ -1,6 +1,9 @@
-TF700t-AKBI v2.6.1
+TF700t-AKBI v2.6.2
 
 TF700t Android Kexecboot Installer Script
+
+v2.6.2 - 08/25/2014
+--Added Zombi-X kernels
 
 v2.6.1 - Final - 08/08/2014
 --Added all in one first time install script

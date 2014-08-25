@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.1
+#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.2
 # 08/08/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 

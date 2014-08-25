@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot kernel Installer - TF700t-AKBI v2.6.1
+#Android Kexecboot kernel Installer - TF700t-AKBI v2.6.2
 # 07/31/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to 
@@ -43,6 +43,9 @@ echo "2 - CROMi-X stock kernel"
 echo "3 - CROMBi-KK - that10cm11 kernel"
 echo "4 - CROMBi-KK - hardslog Grimlock"
 echo "5 - CROMBi-KK - stock cm11 kernel"
+echo "6 - ZOMBi-X - that10 omni kernel"
+echo "7 - ZOMBi-X - hardslog omni Grimlock"
+echo "8 - ZOMBi-X - stock omni kernel"
 echo "Any other key exits"
 read kernel_ver
 echo "Mounting /system r/w..."
@@ -54,6 +57,9 @@ case $kernel_ver in
     3) cp CROMBi-KK_that10/* /system/boot/ ;;
     4) cp CROMBi-KK_grim/* /system/boot/ ;;
     5) cp CROMBi-KK_Stock/* /system/boot/ ;;
+    6) cp thatomni/* /system/boot/ ;;
+    7) cp grimomni3/* /system/boot/ ;;
+    8) cp omniboot/* /system/boot/ ;;
     *) mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
     exit 1
 esac
