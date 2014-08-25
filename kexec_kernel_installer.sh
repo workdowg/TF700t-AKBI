@@ -1,6 +1,6 @@
 #!/system/bin/sh
 #Android Kexecboot kernel Installer - TF700t-AKBI v2.6.2
-# 07/31/2014
+# 08/25/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to 
 #
