@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.6.3
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.6.4
 # 08/08/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
@@ -147,7 +147,7 @@ if [ "$inter_c" -lt "4" ] ; then
 	exit 1
 fi
 #select rootfs image size
-if grep -q crombi < /system/build.prop ; then
+if grep -q crombi < /system/build.prop || grep -q zombi < /system/build.prop ; then
 	rootfs_size=3
 	else
 	echo ""
