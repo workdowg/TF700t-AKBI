@@ -1,6 +1,9 @@
-TF700t-AKBI v2.6.3
+TF700t-AKBI v2.6.4
 
 TF700t Android Kexecboot Installer Script
+
+v2.6.4 - 08/26/2014
+--Updated rootfs and first time install to include ZOMBi-X kernels (forgot)
 
 v2.6.3 - 08/26/2014
 --Removed ZOMBi-X Stock Omni kernel
