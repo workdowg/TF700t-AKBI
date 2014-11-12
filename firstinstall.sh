@@ -21,16 +21,6 @@ if [ ! -f boot.cfg ] ; then
     echo "from the correct directory. Exiting"
     exit
 fi
-#test for previous install
-if [ ! -d kexec.blob ] ; then
-    echo "You have already run this installer or"
-    echo "have a current kexec install. Please"
-    echo "run the main installer again."
-    echo ""
-    echo "Exiting"
-    echo ""
-    exit
-fi
 #variables
 export installer_path=$(pwd -P)
 export kit=/data/media/linux
