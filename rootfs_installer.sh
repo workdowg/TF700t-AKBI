@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.6.4
+#Android Kexecboot Rootfsboot.cfg Installer - TF700t-AKBI v2.6.5
 # 08/08/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
