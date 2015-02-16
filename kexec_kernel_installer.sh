@@ -63,7 +63,7 @@ case $kernel_ver in
     7) cp grimomni3/* /system/boot/ ;;
     8) cp cm11boot/* /system/boot/ ;;
     9) cp grimzombi5/* /system/boot/ ;;
-    10) cp that11zombi/* /system/boot/ ;;
+    10) cp that11zombi/* /system/boot/ ;;	
     *) mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
     exit 1
 esac
