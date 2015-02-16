@@ -1,6 +1,9 @@
-TF700t-AKBI v2.6.5
+TF700t-AKBI v2.6.6
 
 TF700t Android Kexecboot Installer Script
+
+v2.6.6 - 02/16/2015
+--Added Zombi-POP Support
 
 v2.6.5 - 11/21/2014
 --Added that11 CROMBi-KK
