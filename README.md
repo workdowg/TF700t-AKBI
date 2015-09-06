@@ -1,6 +1,6 @@
 
 =======
-TF700t-AKBI v2.6.7 - Final
+TF700t-AKBI v2.6.8 - Final
 ===========
 
 TF700t Android Kexecboot Installer Script
@@ -21,7 +21,7 @@ And although the scripts have some error checking, be
 
 **Prerequisites:**
 
-1- A working CROMi-X 5.4 w/ that10 or Zombi-Pop install
+1- A working CROMi-X 5.4 w/ that10, Zombi-Pop or KatKiss install
  on INTERNAL SD (no f2fs,data2fs or rom2sd)
 
 2- A terminal emulator app (tested on Android Terminal Emulator)

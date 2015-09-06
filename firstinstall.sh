@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.7
+#Android Kexecboot First time install Installer - TF700t-AKBI v2.6.8
 # 08/28/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted 
@@ -107,6 +107,7 @@ echo "3  - ZOMBi-POP - Omni base kernel"
 echo "4  - ZOMBi-POP - Sbdags modded _that11  Omni kernel"
 echo "5  - ZOMBi-POP - hardslog Omni Grimlock"
 echo "6  - ZOMBi-POP - hardslog Omni Grimlock Lite"
+echo "7  - KatKiss - _that Kernel"
 echo "Any other key exits"
 read kernel_ver
 echo "Mounting /system r/w..."
@@ -119,6 +120,7 @@ case $kernel_ver in
     4) cp Omni-_that11/* /system/boot/ ;;
     5) cp Omni-grim/* /system/boot/ ;;
     6) cp Omni-grim-lite/* /system/boot/ ;;
+    7) cp KatKiss/* /system/boot/ ;;
     *) mount -o remount,ro -t ext4 /dev/block/mmcblk0p1 /system || echo "/system not mounted r/o"
     exit 1
 esac

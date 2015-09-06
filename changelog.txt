@@ -1,6 +1,9 @@
-TF700t-AKBI v2.6.7
+TF700t-AKBI v2.6.8
 
 TF700t Android Kexecboot Installer Script
+
+v2.6.8 - 09/05/15
+-- Added KatKiss ROM support
 
 v2.6.7 - 04/29/15
 -- Removed old kernels

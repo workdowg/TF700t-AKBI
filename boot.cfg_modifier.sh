@@ -1,5 +1,5 @@
 #!/system/bin/sh
-#Android Kexecboot boot.cfg modifier Installer - TF700t-AKBI v2.6.7
+#Android Kexecboot boot.cfg modifier Installer - TF700t-AKBI v2.6.8
 # 07/30/2014
 #by workdowg@xda
 #This script must be run in the directory it was extracted to
